@@ -1,20 +1,36 @@
-import store from "./store.js";
+import {adicionar, getItens} from "./store.js";     //importa store.js
+
+
 
     const form = document.forms.entrada;    //cria variável pro formulario
     form.addEventListener('submit', envia); //quando submit for acionado, chama a funcao envia
 
-    atualiza();
+    atualiza(); 
 
     function envia(evento) {
         evento.preventDefault();    //Não deixa enviar os dados para o backEnd, mantém no front
         console.log('Formulário enviado!');
-        store.estado++;
+
+        const n = form.valor.value;
+        adicionar(n);   //diz ele q todo array é pilha
+        form.valor.value = "";
+        form.valor.focus();     //voltar cursor
+
         atualiza();
         }
 
     function atualiza() {
         const ol = document.querySelector('ol');
-        ol.innerHTML = `<li>${store.estado}</li>`;
+        ol.innerHTML = "";
+        const itens = getItens();
+
+        for(let i = 0; i < itens.length; i++){      //
+            const li = document.createElement('li');    //cria 'li'
+            li.textContent = itens[i];
+            ol.appendChild(li);
+
+        }
+        itens.push('Boom!');
     
     }
 
