@@ -24,7 +24,7 @@ import {adicionar, getItens} from "./store.js";     //importa store.js
         ol.innerHTML = "";
         const itens = getItens();
 
-        for(let i = 0; i < itens.length; i++){
+        for(let i = 0; i < itens.length; i++){      //
             const li = document.createElement('li');    //cria 'li'
             li.textContent = itens[i];
             ol.appendChild(li);
