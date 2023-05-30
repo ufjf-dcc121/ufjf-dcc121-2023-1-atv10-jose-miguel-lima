@@ -2,6 +2,7 @@
     form.addEventListener('submit', envia); //quando submit for acionado, chama a funcao envia
 
     let estado = 0;
+    atualiza();
 
     function envia(evento) {
         evento.preventDefault();    //Não deixa enviar os dados para o backEnd, mantém no front
