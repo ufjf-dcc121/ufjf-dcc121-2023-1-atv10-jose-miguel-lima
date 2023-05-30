@@ -1,7 +1,8 @@
+import { estado } from "./store.js";
+
     const form = document.forms.entrada;    //cria variável pro formulario
     form.addEventListener('submit', envia); //quando submit for acionado, chama a funcao envia
 
-    let estado = 0;
     atualiza();
 
     function envia(evento) {
